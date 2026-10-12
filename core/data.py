@@ -73,6 +73,17 @@ def news() -> pd.DataFrame:
     df = pd.read_csv(_p("news_nlp.csv.gz"), parse_dates=["datetime"])
     df["news_category"] = df["final_category"].fillna("other").astype(str)
     df["is_risk_signal"] = df["is_risk_signal_final"].fillna(0).astype(int)
+
+    # A disclosure cannot be dated after the data was exported. 140 rows all
+    # carry 2026-05-01 while 2025-05-01 is empty and every other year's 1 May
+    # holds about seventy headlines — one day whose year was misread. They were
+    # surfacing in "Latest disclosures" as the newest news in the market.
+    # The true date is a guess, so they are dropped rather than rewritten.
+    cutoff = last_date()
+    future = df["datetime"] > cutoff + pd.Timedelta(days=1)
+    if future.any():
+        df.attrs["dropped_future_dated"] = int(future.sum())
+        df = df[~future].reset_index(drop=True)
     return df
 
 

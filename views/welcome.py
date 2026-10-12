@@ -6,6 +6,7 @@ import pandas as pd
 import streamlit as st
 
 from core import data as D
+from core import store
 from core import theme as T
 
 FEATURES = [
@@ -188,7 +189,11 @@ def render():
             st.rerun()
         st.markdown(
             '<div class="caption" style="margin-top:6px">No account, no sign-in. '
-            'Everything runs locally on this machine.</div>',
+            + ('Nothing you enter is stored on the server — your watchlist and '
+               'holdings live in this browser session only.'
+               if store.SHARED else
+               'Everything runs locally on this machine.')
+            + '</div>',
             unsafe_allow_html=True)
 
     with right:

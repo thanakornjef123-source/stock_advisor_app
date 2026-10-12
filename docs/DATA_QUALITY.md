@@ -276,3 +276,21 @@ Beta spans -0.72 to 2.80 and RSI 16 to 86, both unremarkable. The
 advance-decline line uses raw closes while the return factors use adjusted
 closes; the up/down verdict differs on 7 of 961,842 daily observations, which is
 immaterial and was left alone rather than fixed for its own sake.
+
+## Found after the first deployment (October 2026)
+
+**140 disclosures dated in the future.** The live site showed "1 May 2026"
+headlines at the top of Latest disclosures, beside a market dated 30 December
+2025. Every one of the 140 rows carried that single date. The export itself was
+produced on 13 January 2026, so a May 2026 filing cannot exist. 1 May 2025 holds
+zero headlines in the data while 1 May in 2022, 2023 and 2024 holds 71, 69 and
+66 — one day whose year was misread on the way in.
+
+The correct date is a reasonable inference but not a certainty, so the rows are
+dropped rather than rewritten. `data.news()` now discards anything dated more
+than a day after the last trading day and records the count in
+`attrs["dropped_future_dated"]`. 148,593 headlines remain of 148,733.
+
+This one only became visible once the app was hosted and the landing page put
+the newest headline on screen. A defect can sit in a table for weeks and still
+be invisible until something sorts by it.

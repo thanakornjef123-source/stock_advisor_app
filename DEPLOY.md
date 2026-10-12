@@ -13,26 +13,22 @@ Streamlit. Nobody else can do those for you.
 
 ---
 
-## Step 0 · Move the project out of OneDrive first
+## Step 0 · Already done for you
 
-**Do not skip this.** The project currently lives under
-`C:\Users\Asus\OneDrive - KMITL\Desktop\`. OneDrive syncs every file write to
-the cloud, and Git writes hundreds of small internal files very quickly. The two
-fight each other. This already happened during setup: an attempt to create the
-repository in place produced a `.git\config` filled entirely with null bytes and
-a half-built folder Git refused to open.
+The project has been copied out of OneDrive to:
 
-In File Explorer:
+```
+C:\Users\Asus\Projects\stock_advisor_app
+```
 
-1. Create a folder outside OneDrive, for example `C:\Projects`.
-2. Copy the whole `stock_advisor_app` folder into it, giving you
-   `C:\Projects\stock_advisor_app`.
-3. In the **new copy**, turn on `View` → `Show` → `Hidden items` and delete the
-   `.git` folder if it came across. It is not a working repository and will only
-   confuse GitHub Desktop.
+This matters. OneDrive syncs every file write to the cloud, and Git writes
+hundreds of small internal files very quickly. The two fight each other — an
+attempt to create the repository inside the OneDrive folder produced a
+`.git\config` filled entirely with null bytes and a half-built folder Git
+refused to open. That broken folder has been removed from the copy.
 
-Keep the OneDrive copy as a backup if you like. Just do all Git work in the new
-location.
+The OneDrive original is untouched and still runs. From here on, do all Git work
+in `C:\Users\Asus\Projects\stock_advisor_app`.
 
 ---
 
@@ -44,7 +40,7 @@ yourself.
 `File` → `Add local repository` → browse to
 
 ```
-C:\Projects\stock_advisor_app
+C:\Users\Asus\Projects\stock_advisor_app
 ```
 
 It will say the folder is not a Git repository and offer **create a repository
@@ -61,22 +57,23 @@ If you see `.venv`, `__pycache__`, or thousands of files, stop — the
 Write a summary such as `Initial commit`, press **Commit to main**, then
 **Publish repository** at the top.
 
-**About the "Keep this code private" tick box — read this carefully.**
+**The repository is private, and that is the right setting.**
 
-A Streamlit app inherits its visibility from the repository. A public repo gives
-a public app that anyone can open with the link. A private repo gives a
-*private* app, which only people you invite by email can open — they have to
-sign in, and a link alone will not let them in. Community Cloud also allows only
-one private app per account at a time.
+Repository visibility only sets the app's *default* visibility — it is not a
+cage. Streamlit's own documentation is explicit: "Your app will inherit
+permissions from your GitHub repo... If you want to change that you can simply
+do so from the app settings menu."
 
-So there are two sensible choices:
+So the combination to aim for is:
 
-* **Public repo** — simplest. Anyone with the link uses the app instantly. The
-  source code and the SET data are also browsable and downloadable by anyone.
-* **Private repo, then switch the app to public** — after deploying, open the
-  app's settings on Community Cloud and set sharing to public. The link then
-  works for everyone while the repository itself stays closed. This is the
-  better option here, because the dataset is not yours to redistribute.
+* **Repository private** — the SET data and the source stay closed. The dataset
+  came from the exchange and is not yours to redistribute, so this matters.
+* **App public** — set in Streamlit after deploying. Anyone with the link opens
+  it instantly, no account, no invitation.
+
+This is strictly better than making the repository public. An earlier draft of
+this document claimed a private repo locked the app to invited viewers forever.
+That was wrong, and it has been corrected against the documentation.
 
 The upload takes a couple of minutes for 24 MB.
 
@@ -90,24 +87,35 @@ Press **Create app** → **Deploy a public app from GitHub**, then set
 
 | Field | Value |
 |---|---|
-| Repository | `your-username/set-equity-terminal` |
+| Repository | `thanakornjef123-source/stock_advisor_app` |
 | Branch | `main` |
 | Main file path | `app.py` |
+| App URL | pick anything free, e.g. `set-terminal` |
 
 Press **Deploy**. The first build takes three to five minutes while it installs
-streamlit, pandas, numpy, plotly and jinja2.
-
-**Then check the sharing setting.** Open the app menu (three dots, top right of
-the app page on Community Cloud) → **Settings** → **Sharing**, and confirm it is
-set so that anyone with the link can view. If you deployed from a private
-repository this will start as invite-only, and your friends will be asked to
-sign in and be refused.
-
-You will get a URL of the form
+streamlit, pandas, numpy, plotly and jinja2. You will get a URL of the form
 
 ```
-https://set-equity-terminal.streamlit.app
+https://stockadvisorapp-di9ewtrmurthsaabwplsgt.streamlit.app
 ```
+
+---
+
+## Step 3 · Make the app public
+
+The repository is private, so the app starts private too. Right now a friend
+opening the link would hit a sign-in wall. One switch fixes it, and the
+repository stays closed.
+
+From the running app, click **Share** in the upper-right corner, then
+**"Make this app public."**
+
+Or from the workspace: app settings → **Sharing** → under "Who can view this
+app" choose **"This app is public and searchable."**
+
+Then verify it properly: open the link in a private / incognito window where
+you are not signed in to anything. If the terminal loads there, your friends
+can load it.
 
 Anyone with that link can use it. No account, no install.
 

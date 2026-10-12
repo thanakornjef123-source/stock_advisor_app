@@ -8,6 +8,14 @@ suitability questionnaire, it constructs a portfolio whose equity ceiling and
 eligible universe both follow from that profile, and it hands the user a full
 set of research tools to check the recommendation and go further on their own.
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://stockadvisorapp-di9ewtrmurthsaabwplsgt.streamlit.app)
+
+**Live demo** — https://stockadvisorapp-di9ewtrmurthsaabwplsgt.streamlit.app
+
+No install and no account: the link opens the terminal in a browser. Watchlists
+and holdings entered there live in your own browser session and are discarded
+when the tab closes, so visitors never see each other's portfolios.
+
 **Coverage** — 915 securities · 961,842 daily price bars · 15,160 quarterly
 financial statements · 148,733 company disclosures classified by an NLP pipeline
 · 80 computed metrics per security.
