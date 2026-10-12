@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+.streamlit/secrets.toml
+user_data.json
+data/news.csv.gz
+data/news.csv.gz.README
+data/risk_metrics.csv.gz
+diag.txt
+DIAGNOSE.bat
+
+# superseded by rankings.py / lab.py, not imported anywhere
+views/ranking.py
+views/simulator.py

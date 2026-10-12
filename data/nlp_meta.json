@@ -1,0 +1,21 @@
+{
+ "uncat_before": 23.384185083337254,
+ "uncat_after": 13.832841400361723,
+ "risk_before": 7224,
+ "risk_after": 7359,
+ "accepted_routine": 14071,
+ "accepted_risk": 135,
+ "rejected_guard": 31,
+ "rejected_lexicon": 1,
+ "unresolved": 20542,
+ "margin_routine": 0.3,
+ "margin_risk": 0.9,
+ "neg_lexicon_terms": 101,
+ "cv_accuracy": 0.996075367001475,
+ "macro_f1": 0.9859311524386448,
+ "n_train": 113896,
+ "n_classes": 23,
+ "uncat_final": 5.623499828551835,
+ "n_categories_final": 29,
+ "n_headlines": 148733
+}

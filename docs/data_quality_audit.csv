@@ -1,0 +1,78 @@
+stage,metric,value,note
+financials,raw_rows,15163,
+financials,dropped_missing_period_key,3,
+financials,dropped_all_null_rows,0,
+financials,dropped_duplicate_period,0,
+financials,balance_sheet_mismatch_gt_1pct,0,"จาก 15,149 แถวที่ตรวจได้"
+financials,negative_total_assets_nulled,0,
+financials,negative_paidup_share_capital_nulled,0,
+financials,outlier_roe_nulled,21,"นอกช่วง [-500,500]"
+financials,outlier_roa_nulled,0,"นอกช่วง [-500,500]"
+financials,outlier_net_profit_margin_quarter_nulled,67,"นอกช่วง [-1000,1000]"
+financials,outlier_net_profit_margin_accum_nulled,45,"นอกช่วง [-1000,1000]"
+financials,outlier_de_nulled,2,"นอกช่วง [-100,200]"
+financials,clean_rows,15160,
+financials,symbols,866,
+financials,year_min,2021,
+financials,year_max,2026,
+news,metadata_rows_dropped:SET_AllNews_2021.xlsx,6,
+news,metadata_rows_dropped:SET_AllNews_2022.xlsx,6,
+news,metadata_rows_dropped:SET_AllNews_2023.xlsx,6,
+news,metadata_rows_dropped:SET_AllNews_2024.xlsx,6,
+news,metadata_rows_dropped:SET_AllNews_2025.xlsx,6,
+companies,encoding_used,cp874,ไฟล์ต้นฉบับผสมเข้ารหัส utf-8 กับ TIS-620/cp874
+companies,raw_rows,932,
+companies,dropped_duplicate_symbol,0,
+companies,missing_market,0,
+companies,missing_industry,0,
+companies,missing_sector,228,
+companies,clean_rows,931,
+risk_metrics,symbols_scored,914,
+risk_metrics,bucket_3_moderate,312,
+risk_metrics,bucket_4_high,254,
+risk_metrics,bucket_2_low,157,
+risk_metrics,bucket_5_very_high,130,
+risk_metrics,bucket_1_very_low,61,
+risk_metrics,liquidity_normal,351,
+risk_metrics,liquidity_thin,343,
+risk_metrics,liquidity_illiquid,120,
+risk_metrics,liquidity_liquid,100,
+stock_quote,raw_rows,1000518,
+stock_quote,dropped_no_date,0,แถวที่ parse วันที่ไม่ได้
+stock_quote,dropped_duplicate_symbol_date,0,"ซ้ำ (symbol,date) เก็บแถวหลังสุด"
+stock_quote,non_traded_rows_flagged,38676,"OHLC=0 ทั้งแถว หรือ volume=0 -> ราคาเป็น NaN, is_traded=False"
+stock_quote,negative_price_nulled,0,ราคาติดลบ = ข้อมูลผิด
+stock_quote,high_lower_than_low_swapped,0,สลับค่า high/low ให้ถูก
+stock_quote,negative_pe_rows_kept,2,บริษัทขาดทุน — เก็บไว้ ควรกรองตอนคัดหุ้น
+stock_quote,extreme_return_nulled,0,|return วันเดียว| > 100% น่าจะแตกพาร์
+stock_quote,clean_rows,1000518,
+news,raw_rows,285040,
+news,dropped_unparseable_datetime,176,
+news,rows_without_symbol,124,ข่าวภาพรวมตลาด ไม่ผูกกับหุ้นรายตัว
+news,dropped_duplicate,180,
+news,risk_signal_rows,7985,หัวข้อข่าวที่เข้าข่ายสัญญาณความเสี่ยง
+news,uncategorized_other,128511,จัดหมวดไม่ได้ = other
+news,clean_rows,284684,
+output,stock_prices_rows,1000518,
+output,financials_rows,15160,
+output,news_rows,284684,
+output,companies_rows,931,
+output,risk_metrics_rows,914,
+output,stock_prices_symbols,917,
+output,financials_symbols,866,
+output,news_symbols,25327,
+output,companies_symbols,931,
+output,price_date_range,2021-01-04 00:00:00 .. 2025-12-30 00:00:00,
+output,news_date_range,2021-01-02 06:39:03 .. 2026-05-01 21:25:04,
+news_enrich,input_rows,284684,
+news_enrich,subject_stored_as_excel_date,18408,ต้นฉบับเก็บหัวข้อข่าวเป็นค่าวันที่ ข้อความจริงหายไปตั้งแต่ไฟล์ export — แปลงเป็นข้อความวันที่และทำเครื่องหมาย subject_is_date
+news_enrich,security_type_common_stock,148749,
+news_enrich,security_type_derivative_warrant,105704,
+news_enrich,security_type_fund_etf_or_other,30089,
+news_enrich,security_type_unknown,124,
+news_enrich,security_type_invalid,18,
+news_enrich,dropped_invalid_symbol,18,คอลัมน์ symbol มีค่าวันที่ปนมา
+news_enrich,uncategorized_other_rows,80655,28.3% ของข่าวทั้งหมด (เดิม 45.1%)
+news_enrich,risk_signal_rows,8574,
+news_enrich,output_rows,284666,
+risk_metrics,news_red_flag_symbols,49,ข่าวเชิงลบ >= 13 ครั้งใน 2 ปี (เปอร์เซ็นไทล์ 95)
