@@ -57,23 +57,10 @@ If you see `.venv`, `__pycache__`, or thousands of files, stop — the
 Write a summary such as `Initial commit`, press **Commit to main**, then
 **Publish repository** at the top.
 
-**The repository is private, and that is the right setting.**
-
-Repository visibility only sets the app's *default* visibility — it is not a
-cage. Streamlit's own documentation is explicit: "Your app will inherit
-permissions from your GitHub repo... If you want to change that you can simply
-do so from the app settings menu."
-
-So the combination to aim for is:
-
-* **Repository private** — the SET data and the source stay closed. The dataset
-  came from the exchange and is not yours to redistribute, so this matters.
-* **App public** — set in Streamlit after deploying. Anyone with the link opens
-  it instantly, no account, no invitation.
-
-This is strictly better than making the repository public. An earlier draft of
-this document claimed a private repo locked the app to invited viewers forever.
-That was wrong, and it has been corrected against the documentation.
+**Repository visibility.** The repository is public, so the code, the cleaned
+data and the documentation can all be browsed on GitHub, and the app is public
+too. (If a repository is private, the app inherits that and starts invite-only;
+it can still be made public from the app's sharing settings.)
 
 The upload takes a couple of minutes for 24 MB.
 
@@ -103,9 +90,8 @@ https://stockadvisorapp-di9ewtrmurthsaabwplsgt.streamlit.app
 
 ## Step 3 · Make the app public
 
-The repository is private, so the app starts private too. Right now a friend
-opening the link would hit a sign-in wall. One switch fixes it, and the
-repository stays closed.
+If the app was deployed while the repository was private, it starts private
+too, and a friend opening the link would hit a sign-in wall. One switch fixes it.
 
 From the running app, click **Share** in the upper-right corner, then
 **"Make this app public."**
@@ -146,12 +132,7 @@ nothing to redeploy.
 
 ---
 
-## Before you make it public
-
-The dataset came from the Stock Exchange of Thailand under whatever terms you
-received it. Publishing it on the open internet is redistribution, which those
-terms may not permit. Check before you untick "private", or keep the repository
-private and share the app link only with people who need it.
+## Disclaimer
 
 The site carries the disclaimer on every screen, but it is worth repeating: this
 is an educational research tool built on historical data ending December 2025.

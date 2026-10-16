@@ -1,22 +1,16 @@
 # Notice on data and use
 
-## The data is not mine to give away
+## The data
 
-Every figure in this application derives from files supplied by the Stock
-Exchange of Thailand covering 2021–2025. Those files arrived under whatever
-terms accompanied them, and this project does not grant anyone a licence to
-them. If you publish this application on the open internet you are
-redistributing that data, which those terms may not permit.
-
-The safe route is to deploy from a **private** repository and switch only the
-app to public, so the interface is reachable by link while the underlying files
-are not downloadable. `DEPLOY.md` explains how.
+Every figure in this application derives from Stock Exchange of Thailand data
+covering 2021–2025, purchased by the author for this project. The cleaned files
+in `data/` are included so the application runs straight from a fresh checkout.
 
 ## The code
 
 The application code — everything in `app.py`, `core/`, `views/` and `nlp/` —
 was written for this project and may be read, modified and reused freely for
-study. The `data/` folder is a different matter, as above.
+study.
 
 ## What this application is not
 
